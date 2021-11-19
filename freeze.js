@@ -14,3 +14,13 @@ Freeze.prototype.html = function(value) {
     this.elem.innerHTML = value
   }
 }
+Freeze.createElement = function(elemName) {
+  var elem = document.createElement(name)
+  return Freeze(elem)
+}
+Freeze.createCustomElement = function(elemClass, elemExtends, elemName, elemIs) {
+  var customElem = customElements.define(elemName, elemClass, {extends: elemExtends})
+  return (Freeze(
+    document.createElement(elemName, {is: elemIs})
+  ))
+}
